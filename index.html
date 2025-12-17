@@ -1,0 +1,562 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+body {
+    background-image: url();
+    text-align: center;
+    font-weight: bolder;
+    color: #FFFFFF;
+    font-family: "黑体";
+    font-style: inherit;
+}
+/* 全局重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+        /* Header 容器 */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        /* 顶部导航主容器 */
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            height: 70px;
+        }
+        /* 品牌 LOGO/名称 */
+        .header-logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .header-logo h1 {
+            font-size: 20px;
+            color: #e63946; /* 主色调：贴合女性向内容的暖红色 */
+            font-weight: 600;
+            margin-left: 8px;
+        }
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background-color: #e63946;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 18px;
+        }
+        /* 核心导航栏 */
+        .header-nav {
+            display: flex;
+            gap: 30px;
+        }
+        .header-nav a {
+            font-size: 15px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 8px 0;
+        }
+        /* 导航 hover 下划线效果 */
+        .header-nav a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #e63946;
+            transition: width 0.3s;
+        }
+        .header-nav a:hover::after,
+        .header-nav a.active::after {
+            width: 100%;
+        }
+        /* 快捷功能区（搜索+订阅） */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        /* 搜索框 */
+        .search-box {
+            position: relative;
+            width: 200px;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 8px 12px 8px 35px;
+            border: 1px solid #eee;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #666;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .search-box input:focus {
+            border-color: #e63946;
+        }
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 14px;
+        }
+        /* 订阅按钮 */
+        .subscribe-btn {
+            padding: 8px 18px;
+            background-color: #e63946;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .subscribe-btn:hover {
+            background-color: #d12f3c;
+        }
+        /* 移动端菜单按钮（隐藏） */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 20px;
+            color: #333;
+            cursor: pointer;
+        }
+        /* 响应式适配 - 平板/手机 */
+        @media (max-width: 992px) {
+            .search-box {
+                width: 150px;
+            }
+            .header-nav {
+                gap: 20px;
+            }
+        }
+        @media (max-width: 768px) {
+            /* 隐藏PC端导航和搜索，显示移动端菜单 */
+            .header-nav, .header-actions {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            /* 移动端展开菜单样式（可结合JS实现交互） */
+            .header-nav.mobile-show {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: #fff;
+                padding: 20px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+                gap: 15px;
+            }
+        }
+footer {                                                  /*页脚*/
+    margin: 50px auto;
+	height: 50px;
+	width: 1240px;
+    background-color: aliceblue;
+    text-align: center;
+    font-size: 14px;
+	margin-top: 5px;
+	padding: 25px;
+	border-radius: 8px;
+	box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+	flex: 1;
+	margin-bottom: 0 ;
+}
+导航栏文字样式 {
+}
+ /* 全局重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+        /* 页脚容器 */
+        footer {
+            background-color: #F8DADA;
+            padding: 40px 20px 20px;
+            margin-top: 60px;
+			width: 100%;
+			height: 30%;
+            
+        }
+        /* 页脚内容区 */
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        /* 品牌模块 */
+        .footer-brand h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .footer-brand p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+        /* 导航模块 */
+        .footer-nav h3 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .footer-nav ul {
+            list-style: none;
+        }
+        .footer-nav li {
+            margin-bottom: 8px;
+        }
+        .footer-nav a {
+            font-size: 14px;
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-nav a:hover {
+            color: #e63946;
+        }
+        /* 联系方式模块 */
+        .footer-contact p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        .footer-contact a {
+            color: #e63946;
+            text-decoration: none;
+        }
+        /* 底部声明区 */
+        .footer-declare {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 13px;
+            color: #999;
+            line-height: 1.8;
+            text-align: center;
+        }
+        .footer-declare a {
+            color: #999;
+            text-decoration: none;
+        }
+        .footer-declare a:hover {
+            color: #e63946;
+        }
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
+        }
+        @media (max-width: 480px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+</style>
+</head>
+<header>
+        <div class="header-container">
+            <!-- 品牌 LOGO/名称 -->
+            <div class="header-logo">
+                <a href="/">
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h1>女频短剧</h1>
+                </a>
+            </div>
+
+            <!-- 核心导航栏 -->
+            <nav class="header-nav">
+                <a href="#" class="active">首页</a>
+                <a href="#">题材更迭</a>
+                <a href="#">热门人设</a>
+                <a href="#">逻辑剧情</a>
+                <a href="#">完播率</a>
+                <a href="#">社会关联</a>
+            </nav>
+
+            <!-- 快捷功能区（搜索+订阅） -->
+            <div class="header-actions">
+                <div class="search-box">
+                    <i class="fa-solid fa-search search-icon"></i>
+                    <input type="text" placeholder="搜索：人设/题材/播放量">
+                </div>
+                <button class="subscribe-btn">
+                    <i class="fa-solid fa-bell"></i> 订阅女频短剧热门题材
+                </button>
+            </div>
+
+            <!-- 移动端菜单按钮 -->
+            <div class="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- 可选：移动端菜单交互JS（如需实现点击展开） -->
+    <script>
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const headerNav = document.querySelector('.header-nav');
+        mobileMenuBtn.addEventListener('click', () => {
+            headerNav.classList.toggle('mobile-show');
+        });
+    </script>
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <td height="10" colspan="5" bgcolor="#FFFFFF">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="5" bgcolor="#F8DADA"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td width="53%" height="82" rowspan="2" style="color: #004aad; font-family: '黑体'; font-size: 66px; font-style: normal; font-weight: bold; text-align: center;"> 女频短剧题材热度变化</td>
+            <td height="51" colspan="2"><p>&nbsp;</p>
+              <p><span style="color: #f2838b; font-size: 36px; font-weight: bolder;">为什么要关注这个话题？</span></p></td>
+          </tr>
+          <tr>
+            <td width="46%" rowspan="2" style="color: #023983; text-align: left; font-size: 24px; font-weight: normal; font-family: '宋体';">女频短剧的题材偏好直接对应女性群体的情绪诉求与生活关注比如&ldquo;现实向职场题材&rdquo;崛起，既体现女性对职业成长的共鸣，也折射出当代女性对&ldquo;非恋爱向&rdquo;内容的需求提升；而题材迭代速度加快，也反映出女性受众的审美疲劳周期缩短，内容偏好更趋多元。现代女性的社会身份从&ldquo;单一家庭角色&rdquo;转向&ldquo;多元身份叠加&rdquo;，女频短剧题材的变化正是这种转型的映射。 </td>
+            <td width="1%" rowspan="2"><img src="img/2.2.png" width="180" height="171" alt="" /> </td>
+          </tr>
+          <tr>
+            <td><p style="color: #ec868d; font-style: normal; font-weight: bold; font-size: 24px; font-family: 'Franklin Gothic Heavy'; line line-height: normal; text-align: center;">Female-oriented short drama popularity<span style="text-align: center"></span><span style="text-align: left"></span></p>
+              <p><img src="img/波子汽水.png" width="828" height="15" alt=""/></p></td>
+            </tr>
+          <tr>
+            <td colspan="3">&nbsp;</td>
+          </tr>
+          </tbody>
+      </table></td>
+    </tr>
+    <tr>
+      <td width="3%">&nbsp;</td>
+      <td width="31%">&nbsp;</td>
+      <td width="32%">&nbsp;</td>
+      <td width="31%">&nbsp;</td>
+      <td width="3%">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><img src="img/标题11.png" width="420" height="42" alt=""/></td>
+      <td><img src="img/导航条2.png" width="420" height="42" alt=""/></td>
+      <td><img src="img/导航条3.png" width="420" height="42" alt=""/></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="color: #002D69; font-weight: normal; text-align: left;">&nbsp;</td>
+      <td style="color: #002D69; font-weight: normal; text-align: left;"><p>&nbsp;</p>
+      <p style="text-align: center; font-size: 22px;">【题材风向突变：情感治愈、家庭类题材成为“流量新宠”】<br>
+	                                                   大众对贴近生活、具备情绪价值内容的需求<br>
+													   激增，也让情感治愈、家庭类题材成为内容<br>
+													   市场的 “新蓝海”<br><br><br><br>
+	   （2023 - 2025年女频题材短剧占比）</p></td>
+      <td rowspan="2"><p style="color: #002D69; font-weight: normal; text-align: center; font-size: 22px;"> 
+	  【人设风向大洗牌：“霸总”遇冷，现实向人设成新宠】<br>
+	  受众偏好已从强悬浮设定转向更具生活共鸣、更具反差感的内容。<br>
+	  这一转变，标志着内容市场的 “人设审美” 正式进入 “去悬浮、<br>
+	重真实” 的新阶段。
+	  </p>
+  <p><img src="img/2.3.png" width="629" height="287" alt=""/></p> 
+      <p>&nbsp;</p></td>
+      <td rowspan="2" style="color: #002D69; font-weight: normal; font-size: 14px;"><p>&nbsp;</p>
+        <p style="font-size: 22px">【2025 短剧“10亿播放俱乐部”：女性受众主导市场话语权】<br>
+		                            女性用户占比的持续攀升 —— 女性已成为短剧市场的核心受众，<br>
+									不仅深度主导了情感类题材的热度，更直接影响着短剧品类的<br>
+									迭代方向与商业价值闭环。数据同时显示，成长逆袭、悬疑探<br>
+									案等题材也占据一定席位，但都市情感类的绝对优势，印证了<br> 
+									“女性向情感内容” 仍是当前短剧市场的流量密码。</p>
+      <p><img src="img/1.3.png" width="494" height="317" alt=""/></p>
+      <p style="font-size: 16px; font-weight: normal; font-style: oblique;">（数据来源于：WETRUE联合新腕儿发布的2025年1月-11月个月度短剧榜、CSM媒介研究的《微短剧行业发展报告2025》、骨朵网络影视对红果10亿短剧俱乐部的分析报告） </p></td>
+      <td rowspan="2" style="color: #002D69; font-weight: normal; font-size: 14px;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="color: #002D69; font-weight: normal; text-align: center;">&nbsp;</td>
+      <td style="color: #002D69; font-weight: normal; text-align: center;"><p><img src="img/1.1.png" width="540" height="300" alt=""/></p>
+      <p>&nbsp;</p></td>
+    </tr>
+    <tr>
+      <td colspan="5" style="color: #002D69; font-weight: normal; text-align: center;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="color: #002D69; font-weight: normal; text-align: center;">&nbsp;</td>
+      <td style="color: #002D69; font-size: 22px; font-weight: normal;"><p><span style="color: #002D69; font-weight: normal; text-align: center;"><img src="img/导航条4.png" width="420" height="42" alt=""/></span></p>
+        <p>【女频短剧叙事逻辑“大翻身”：“大女主掌控叙事主动权】<br>
+		    女性受众对 “弱化女性、制造苦难” 戏码的审美疲劳，<br>
+			以及对 “自主选择、掌控命运” 女性形象的强烈偏好<br>
+			女频短剧正从 “虐心工具” 转向 “女性力量的表达载体”<br>
+			叙事逻辑的迭代也标志着女性向内容进入 <br>
+			“尊重女性主体性” 的新阶段。
+			<span style="text-align: left"></span></p>
+      <p><img src="img/1.4.png" width="500" height="299" alt=""/></p>
+      <p style="color: #002D69; font-weight: bolder; font-style: oblique; font-size: 12px;"><span style="color: #002D69; font-style: oblique; font-size: 16px; font-weight: normal;">(数据来源：骨朵网络影视行业回溯数据、&ldquo;2023年《短剧产业白皮书》&rdquo;、&ldquo;艺恩《2025短剧用户内容消费洞察》&rdquo;、&ldquo;红果短剧&lsquo;10亿短剧俱乐部&rsquo;战报&rdquo;、&ldquo;骨朵网络影视同步检测&rdquo;） </span></p></td>
+      <td style="color: #002D69; font-weight: normal; text-align: center;"><img src="img/中间图片.png" width="386" height="503" alt=""/></td>
+      <td style="color: #002D69; text-align: center; font-size: 18px; font-style: oblique; font-weight: normal;"><p><img src="img/导航条5.png" width="420" height="42" alt=""/></p>
+      <p><span style="font-style: normal; font-size: 22px; font-weight: normal; color: #002D69;">【女频短剧人设 “换赛道”】<br>
+	  女性受众对 “强控制型男性人设” 的审美疲劳，<br>
+	  也印证了女频内容从 “悬浮霸总叙事” 向 “更<br>
+	  贴近情感平等、生活共鸣” 方向的转型 —— 人<br>
+	  设的迭代，正是女频短剧 “去霸总化、重情感<br>
+	  真实” 的直观注脚。
+	  </span></p>
+      <p><img src="img/1.2.png" width="493" height="261" alt=""/></p>
+      <p style="font-size: 16px; font-weight: normal; font-style: oblique;">（数据来源于：钛媒体2022相关核心数据统计、AppGrowing2024年初1000部热门投放短剧关键词、骨朵网络影视2024-2025人设数据统计、澎湃新闻&ldquo;助力2024-2025年总裁人设退潮及家庭关键词增长数据论证&rdquo;） </p></td>
+      <td style="color: #002D69; font-weight: normal; text-align: center;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="5" style="color: #002D69; font-weight: normal; text-align: center;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="color: #002D69; font-weight: normal; text-align: center;">&nbsp;</td>
+      <td style="color: #002D69; text-align: center; font-size: 22px; font-weight: normal;"><p><img src="img/导航条6.png" width="420" height="42" alt=""/></p>
+      <p>【女频短剧完播率“分层”：强悬念、高共鸣题材领跑】<br>
+	  当受众对套路化、悬浮化内容的耐心持续流失，<br>
+	  强悬念、能引发生活共鸣的题材，正凭借 “反<br>
+	  套路”“有情绪价值” 的特质，成为女频短剧留<br>
+	  住用户的关键，也进一步倒逼内容创作向 “去<br>
+	  同质化、重用户情绪” 方向转型。
+	  </p>
+      <p><img src="img/1.7.png" width="524" height="310" alt=""/></p>
+      <p>(<span style="font-size: 16px">数据来源：红果短视频平台）</span></p>
+      <p>&nbsp;</p></td>
+      <td style="font-size: 22px; color: #002D69; font-weight: normal; text-align: center;"><p style="<font size="22" color="#002D69"></font>【女频短剧关键词“换血”：从“霸总”到“夫人”】<br>
+	从 “霸总甜宠” 的悬浮设定，转向 “家庭向女性人设”<br>
+	“大女主掌控叙事” 的现实向表达，既印证了 “去悬浮、<br>
+	重生活共鸣” 的内容迭代逻辑，也体现了女性受众对更<br>
+	具主体性、更贴近自身身份的角色与剧情的偏好升级。
+	  <img src="img/微词云1.png" width="291" height="259" alt=""/><img src="img/微词云2.png" width="283" height="256" alt=""/></p>
+      <p><span style="font-size: 18px; font-weight: normal; font-style: oblique;">（2022年核心关键词数据） （2025年核心关键词数据） </span></p>
+      <p>&nbsp;</p></td> 
+      <td style="color: #002D69; text-align: center; font-size: 22px; font-style: inherit; font-weight: normal;"><p><img src="img/导航条7.png" width="420" height="42" alt=""/></p>
+        <p >【女频短剧爆款密码：绑定社会热点】<br>
+		社会热点为题材注入了话题性与情感共鸣点，<br>
+		既契合了女性受众对现实议题的关注，也让<br>
+		内容跳出同质化窠臼，印证了 “绑定社会情<br>
+		绪” 是女频短剧实现播放量断层领先的关键策略。
+		</p>
+        <p><img src="img/1.8.png" width="562" height="288" alt=""/></p>
+        <p ><span style="font-size: 16px; font-weight: normal; font-style: oblique;">（数据来源于：红果平台数据机构监测、DataEye机构统计的免费端短剧整体播放水平、红果短剧平台内容同质化现状行业分析报道） </span></p>
+        <p align="center" style="font-size: 12px; font-weight: normal; font-style: oblique;" >&nbsp; </p>
+      <p>&nbsp;</p></td>  
+      <td style="color: #002D69; font-weight: normal; text-align: center;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="color: #002D69; font-weight: normal; text-align: center;">&nbsp;</td>
+      <td style="color: #002D69; font-weight: normal; text-align: center;">&nbsp;</td>
+      <td style="color: #002D69; font-weight: normal; text-align: center;">&nbsp;</td>
+      <td style="color: #002D69; font-weight: normal; text-align: center;">&nbsp;</td>
+      <td style="color: #002D69; font-weight: normal; text-align: center;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="5" style="color: #002D69; font-weight: normal; text-align: center;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="color: #002D69; font-weight: normal; text-align: left;">&nbsp;</td>
+      <td style="color: #002D69; font-weight: normal; text-align: left;">&nbsp;</td>
+      <td style="color: #002D69; font-weight: normal; text-align: center;">&nbsp;</td>
+      <td style="color: #002D69; font-weight: normal; text-align: center;">&nbsp;</td>
+      <td style="color: #002D69; font-weight: normal; text-align: center;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="color: #002D69; font-weight: normal;">&nbsp;</td>
+      <td style="color: #002D69; font-weight: normal;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="color: #002D69; font-weight: normal;">&nbsp;</td>
+      <td style="color: #002D69; font-weight: normal;">&nbsp;</td>
+    </tr>
+
+  </tbody>
+</table>
+</body>
+ <footer>
+        <div class="footer-container">
+            <!-- 品牌定位 -->
+            <div class="footer-brand">
+                <h2>女频短剧热门题变化材研究院</h2>
+                <p>聚焦女频短剧行业趋势，提供权威数据洞察与内容风向报告，助力行业精准把握女性受众偏好与创作方向。</p>
+            </div>
+            <!-- 行业数据导航 -->
+            <div class="footer-nav">
+                <h3>行业数据</h3>
+                <ul>
+                    <li><a href="#">年度趋势报告</a></li>
+                    <li><a href="#">10亿播放俱乐部榜单</a></li>
+                    <li><a href="#">人设/题材占比数据</a></li>
+                    <li><a href="#">完播率数据分析</a></li>
+                </ul>
+            </div>
+            <!-- 内容洞察导航 -->
+            <div class="footer-nav">
+                <h3>内容洞察</h3>
+                <ul>
+                    <li><a href="#">爆款短剧拆解</a></li>
+                    <li><a href="#">女性受众偏好分析</a></li>
+                    <li><a href="#">创作指南与建议</a></li>
+                    <li><a href="#">社会热点选题参考</a></li>
+                </ul>
+            </div>
+            <!-- 关于我们/联系方式 -->
+            <div class="footer-contact">
+                <h3>联系我们</h3>
+                <p>电子邮箱：<a href="#">375429200@QQ.com</a></p>
+                <p>联系电话：<a href="#">2019-1123-0816</a></p>
+                <p>官方公众号：女频短剧数据洞察</p>
+            </div>
+        </div>
+        <!-- 合规声明 -->
+        <div class="footer-declare">
+            <p>©2025 女频短剧数据研究院 版权所有 | 
+                <a href="#">数据声明</a> | 
+                <a href="#">版权声明</a> | 
+                <a href="#">免责声明</a> | 
+                <a href="#">隐私政策</a>
+            </p>
+            <p style="margin-top: 8px;">本网站所有行业数据均又本组成员分析得来，用于数据信息可视化课程期末作业<br>
+			小组成员：<br>
+			陈思宇：2302600551     母心雨：2302600556<br>
+			         张浏翼：2302600553     郭  萍：2302600557
+			</p>
+        </div>
+    </footer>
+</html>
